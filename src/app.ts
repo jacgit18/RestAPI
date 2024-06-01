@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // app.use(express.static(path.join(__dirname, "static", "about.html")))
-app.use(appUserIdFromHeaders)
+// app.use(appUserIdFromHeaders)
 
 
 

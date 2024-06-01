@@ -1,4 +1,4 @@
-// import { QueryParams } from "../controllers/req-data-validation/index.js"
+import { QueryParams } from "../controllers/req-data-validation/index.js"
 import { exampleData } from "../db/index.ts"
 import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 import { Example } from '../models/index.ts'

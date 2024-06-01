@@ -1,5 +1,7 @@
-const convertQueryOperators = (request, response, next) => {
-  const operators = {
+import { NextFunction, Request, Response } from "express"
+
+const convertQueryOperators = (req: Request, res: Response, next:NextFunction) => {
+  const operators: { [key: string]: string } = {
     gte: ">=",
     lte: "<=",
     gt: ">",
@@ -7,16 +9,17 @@ const convertQueryOperators = (request, response, next) => {
     eq: "=",
     neq: "!=",
   }
-  if (request.query) {
-    for (const key in request.query) {
-      const pair = request.query[key]
+
+  if (req.query) {
+    for (const key in req.query) {
+      const pair = req.query[key]
       if (typeof pair === "object") {
-        const newPair = {}
+        const newPair: { [key: string]: any } = {}
         for (const pairKey in pair) {
           const newKey = operators[pairKey] || pairKey
-          newPair[newKey] = pair[pairKey]
+          newPair[newKey] = pair[pairKey] // bug
         }
-        request.query[key] = newPair
+        req.query[key] = newPair
       }
     }
   }

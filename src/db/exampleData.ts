@@ -14,19 +14,24 @@ async function getMaterials(
   queryParams: QueryParams,
   returnFields: string[]
 ): Promise<any[]> {
-  const updatedFilter: any = updateFilterForQueryParams(filter, queryParams)
-  return paginationForQuery(queryParams.limit, queryParams.page,
-    db('material_type')
-      .where(whereBuilder(updatedFilter))
-      .select(returnFields)
-      .orderBy('material_type.name','asc')
-  )
+
+
+  // const updatedFilter: any = updateFilterForQueryParams(filter, queryParams)
+  // return paginationForQuery(queryParams.limit, queryParams.page,
+  //   db('material_type')
+  //     .where(whereBuilder(updatedFilter))
+  //     .select(returnFields)
+  //     .orderBy('material_type.name','asc')
+  // )
+
 }
 
 
 async function updateMaterial(updatedValues: any, filter: any, returnFields: string[]){
+
   const updatedMaterial: any = await db('material_type').where(filter).update(updatedValues, returnFields)
   return updatedMaterial[0]
+  
 }
 
 
