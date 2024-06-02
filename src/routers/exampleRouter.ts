@@ -7,12 +7,12 @@ const exampleRoutes: RouterEntry[] = [
     route: '/',
     controllerFn: exampleController.createStuff
   }
-  // ,
-  // {
-  //   method: 'get',
-  //   route: '/:id',
-  //   controllerFn: exampleController.getStuff
-  // },
+  ,
+  {
+    method: 'get',
+    route: '/:id',
+    controllerFn: exampleController.getStuff
+  },
   // {
   //   method: 'put',
   //   route: '/:id/episodes',

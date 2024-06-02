@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
+import fs from 'fs';
+import path from 'path';
+// import { spawn } from "node:child_process";
 // import { Example } from '../models/index.js'
 import { TVShow } from "../models/Model.ts";
 // import { Episode, Rating, TVShow } from "../models/Model.ts";
-
 import { tvShows } from "../db/dummyData.ts";
 import { exampleService } from "../services/index.ts";
 import { addErrorHandlingToController } from "../utils/error.ts";
 
 
 async function createStuff(req: Request, res: Response): Promise<void> {
-
   let idShow = 3;
 
   const tvShow: TVShow = {
@@ -31,27 +32,43 @@ async function createStuff(req: Request, res: Response): Promise<void> {
 }
 
 
+async function getStuff(req: Request, res: Response): Promise<void> {
+  const filePath = 'names.txt';
 
-// async function getStuff(req: Request, res: Response): Promise<void> {
+  const showId = +req.params.id; // Converts the string ID to a number
+
+  try {
+    const tvShow = await exampleService.getStuff(showId);
+
+    if (tvShow) {
+    // Extra Uncessary stuff
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+      res.status(500).send('Error reading file');
+      return;
+      }
+    
+      res.sendFile(path.join(__dirname, "static", "about.html"))
+
+    })
+
+      res.status(200).json(tvShow);
+
+    } else {
+        res.status(404).json({ error: "TV show not found" });
+    }
+} catch (error) {
+    console.error("Error getting TV show:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+}
 
 
-//   const showId = +req.params.id;
-//   const tvShow = tvShows.find(show => show.id === showId);
-
-
-//     // const validatedQueryParams = validateQueryParams(req.query, Example.fieldDefinitions)
-//     // const materials = await exampleService.getMaterials(filter, validatedQueryParams)
-//     // res.send(materials)
-//     // return
   
-//     if (tvShow) {
-//       res.status(200).json(tvShow);
-//     } else {
-//       res.status(404).json({ error: "TV show not found" });
-//     }
+  
 
+  
 
-// }
+}
 
 
 // async function updateStuff(req: Request, res: Response): Promise<void> {
@@ -67,7 +84,7 @@ async function createStuff(req: Request, res: Response): Promise<void> {
 //       tvShow.episodes = episodes;
 //       res.status(200).json(tvShow);
 //     } else {
-//       throw new HttpError(400, ' error: "TV show not found" }') 
+//       throw new HttpError(400, ' error: "TV show not found" }')
 
 //       // res.status(404).json({ error: "TV show not found" });
 //     }
@@ -109,13 +126,12 @@ async function createStuff(req: Request, res: Response): Promise<void> {
 
 
 const exportDefault = {
-  createStuff
-  // getStuff,
+  createStuff,
+  getStuff,
   // updateStuff,
   // updateStuffTwo,
   // deleteStuff
 }
 
-// export default exportDefault
 export default addErrorHandlingToController(exportDefault)
 

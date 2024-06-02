@@ -1,0 +1,37 @@
+ router.post('/data', (req: Request, res: Response) => {
+    const data = req.body.data;
+  
+    if (!data) {
+      res.status(400).send('No data provided');
+      return;
+    }
+  
+    const process = spawn('python3', ['./data.py', data.toString()]);
+
+  
+    let result = '';
+  
+    process.stdout.on('data', (chunk) => {
+      result += chunk.toString();
+      console.log(result)
+
+    });
+  
+    process.stderr.on('data', (error) => {
+      console.error(`Error: ${error.toString()}`);
+    });
+  
+    process.on('close', (code) => {
+      if (code !== 0) {
+        res.status(500).send('Error processing data');
+      } else {
+        res.send(result);
+      }
+    });
+  
+    process.on('error', (err) => {
+      console.error(`Failed to start subprocess: ${err}`);
+      res.status(500).send('Internal server error');
+    });
+  });
+ 

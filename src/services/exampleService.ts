@@ -15,13 +15,11 @@ const createdShow = await exampleData.createStuff(tvShow); // Await data layer c
 return createdShow;
 }
 
-// async function getStuff(filter: any, queryParams: QueryParams): Promise<any[]> {
-//   return await exampleData.getMaterials(
-//     filter,
-//     queryParams,
-//     columnsReturnedFromDbQuery(Example.fieldDefinitions)
-//   )
-// }
+async function getStuff(id: number): Promise<any> {
+
+  return await exampleData.getStuff(id);
+}
+
 
 // async function updateStuff(updatedValues: any, material_id: string): Promise<any> {
 //   updatedValues.date_modified = new Date()
@@ -52,8 +50,8 @@ return createdShow;
 
 
 export default {
-  createStuff
-  // getStuff,
+  createStuff,
+  getStuff,
   // updateStuff,
   // updateStuffTwo,
   // deleteStuff

@@ -17,22 +17,11 @@ async function createStuff(tvShow: TVShow): Promise<any> {
 
 }
 
-// async function getMaterials(
-//   filter: any | null,
-//   queryParams: QueryParams,
-//   returnFields: string[]
-// ): Promise<any[]> {
+async function getStuff(id: number): Promise<any> {
 
+  return await tvShows.find(show => show.id === id);
 
-  // const updatedFilter: any = updateFilterForQueryParams(filter, queryParams)
-  // return paginationForQuery(queryParams.limit, queryParams.page,
-  //   db('material_type')
-  //     .where(whereBuilder(updatedFilter))
-  //     .select(returnFields)
-  //     .orderBy('material_type.name','asc')
-  // )
-
-// }
+}
 
 
 // async function updateMaterial(updatedValues: any, filter: any, returnFields: string[]){
@@ -44,7 +33,7 @@ async function createStuff(tvShow: TVShow): Promise<any> {
 
 
 export default {
-  createStuff
-  // getMaterials,
+  createStuff,
+  getStuff
   // updateMaterial
 }
