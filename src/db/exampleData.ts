@@ -5,10 +5,13 @@ import { tvShows } from '../db/dummyData';
 import { TVShow } from '../models/Model';
 
 
+// const tvShows: TVShow[] = [];
+
 async function createStuff(tvShow: TVShow): Promise<any> {
   // const createdMaterial = await db('material_type').insert(material, returnFields)
 
   const createdShow = await tvShows.push(tvShow)
+  
 
   return createdShow
 

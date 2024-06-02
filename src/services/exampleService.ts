@@ -1,12 +1,18 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
-import { exampleData } from "../db/index.ts"
+import { exampleData } from "../db/index.ts";
 // import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 // import { Example } from '../models/index.ts'
+import { Episode, TVShow } from "../models/Model.ts";
 
-async function createStuff(tvShow: any): Promise<any> {
-  tvShow.episodes.date_created = new Date()
 
-  return exampleData.createStuff(tvShow)
+async function createStuff(tvShow: TVShow): Promise<any> {
+  tvShow.episodes.forEach((episode: Episode) => {
+    episode.date_created = new Date();
+});
+
+const createdShow = await exampleData.createStuff(tvShow); // Await data layer call
+
+return createdShow;
 }
 
 // async function getStuff(filter: any, queryParams: QueryParams): Promise<any[]> {

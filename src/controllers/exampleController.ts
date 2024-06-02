@@ -3,32 +3,29 @@ import { Request, Response } from "express";
 import { TVShow } from "../models/Model.ts";
 // import { Episode, Rating, TVShow } from "../models/Model.ts";
 
+import { tvShows } from "../db/dummyData.ts";
 import { exampleService } from "../services/index.ts";
 import { addErrorHandlingToController } from "../utils/error.ts";
 
 
 async function createStuff(req: Request, res: Response): Promise<void> {
-console.log("REQUEST ", req)
 
-let idShow = 3;
+  let idShow = 3;
 
-    const tvShow: TVShow = {
+  const tvShow: TVShow = {
       id: ++idShow,
       name: req.body.name,
       ratings: [],
-      episodes: [],
+      episodes: [], // Assuming episodes are added later
+  };
+
+  try {
+      const createdExamples = await exampleService.createStuff(tvShow);
+      res.status(201).json(tvShows);
+  } catch (error) {
+      console.error("Error creating stuff:", error);
+      res.status(500).json({ error: "Internal Server Error" });
   }
-
-
-  const createdExamples = await exampleService.createStuff(tvShow)
-  console.log("STUFF ", createdExamples)
-
-  res.status(201).json(createdExamples)
-
-
-//   if(true){
-//   res.status(401).send('Not authorized for access')
-// }
 
 
 }
