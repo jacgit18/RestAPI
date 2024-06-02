@@ -1,4 +1,4 @@
-import express from "express";
+import { NextFunction, Request, Response } from "express";
 
 export class HttpError extends Error {
   public status: number
@@ -11,7 +11,7 @@ export class HttpError extends Error {
 export function handleControllerError(
   err: Error | HttpError,
   req: Request,
-  res: express.Response
+  res: Response
 ): void {
   if (err instanceof HttpError) {
     res.status(err.status).send(err.message)
@@ -22,19 +22,19 @@ export function handleControllerError(
 }
 
 export function addErrorHandlingToControllerMethod(
-  controllerMethod: (req: Request, res: express.Response, next: express.NextFunction) => Promise<void>
-): (req: Request, res: express.Response, next: express.NextFunction) => Promise<void> {
-  return (req: Request, res: express.Response, next: express.NextFunction) => {
+  controllerMethod: (req: Request, res: Response, next: NextFunction) => Promise<void>
+): (req: Request, res: Response, next: NextFunction) => Promise<void> {
+  return (req: Request, res: Response, next: NextFunction) => {
     return controllerMethod(req, res, next).catch((e) => handleControllerError(e, req, res))
   }
 }
 
 export function addErrorHandlingToController(
-  controller: {[key: string]: (req: Request, res: express.Response, next: express.NextFunction) => Promise<void>}
-): {[key: string]: (req: Request, res: express.Response, next: express.NextFunction) => Promise<void>} {
+  controller: {[key: string]: (req: Request, res: Response, next: NextFunction) => Promise<void>}
+): {[key: string]: (req: Request, res: Response, next: NextFunction) => Promise<void>} {
   return Object.keys(controller).reduce(
     (
-      newController: {[key: string]: (req: Request, res: express.Response, next: express.NextFunction) => Promise<void>},
+      newController: {[key: string]: (req: Request, res: Response, next: NextFunction) => Promise<void>},
       controllerMethodName
     ) => {
       newController[controllerMethodName] = addErrorHandlingToControllerMethod(controller[controllerMethodName])

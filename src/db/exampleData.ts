@@ -1,19 +1,24 @@
-import { QueryParams } from "../controllers/req-data-validation/index.js"
-import { db, whereBuilder } from "./db.ts"
+// import { QueryParams } from "../controllers/req-data-validation/index.ts"
+// import { db, whereBuilder } from "./db.ts"
 // import { paginationForQuery, updateFilterForQueryParams } from "./util.ts"
+import { tvShows } from '../db/dummyData';
+import { TVShow } from '../models/Model';
 
 
+async function createStuff(tvShow: TVShow): Promise<any> {
+  // const createdMaterial = await db('material_type').insert(material, returnFields)
 
-async function createMaterial(material: any, returnFields: string[]): Promise<any> {
-  const createdMaterial = await db('material_type').insert(material, returnFields)
-  return createdMaterial[0]
+  const createdShow = await tvShows.push(tvShow)
+
+  return createdShow
+
 }
 
-async function getMaterials(
-  filter: any | null,
-  queryParams: QueryParams,
-  returnFields: string[]
-): Promise<any[]> {
+// async function getMaterials(
+//   filter: any | null,
+//   queryParams: QueryParams,
+//   returnFields: string[]
+// ): Promise<any[]> {
 
 
   // const updatedFilter: any = updateFilterForQueryParams(filter, queryParams)
@@ -24,19 +29,19 @@ async function getMaterials(
   //     .orderBy('material_type.name','asc')
   // )
 
-}
+// }
 
 
-async function updateMaterial(updatedValues: any, filter: any, returnFields: string[]){
+// async function updateMaterial(updatedValues: any, filter: any, returnFields: string[]){
 
-  const updatedMaterial: any = await db('material_type').where(filter).update(updatedValues, returnFields)
-  return updatedMaterial[0]
+//   const updatedMaterial: any = await db('material_type').where(filter).update(updatedValues, returnFields)
+//   return updatedMaterial[0]
   
-}
+// }
 
 
 export default {
-  createMaterial,
-  getMaterials,
-  updateMaterial
+  createStuff
+  // getMaterials,
+  // updateMaterial
 }

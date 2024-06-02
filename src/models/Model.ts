@@ -16,6 +16,7 @@ export interface Episode {
   name: string;
   ratings: number[];
   episodes: [string, number] | [];
+  date_created: FieldType;
 }
 
 export interface Rating {

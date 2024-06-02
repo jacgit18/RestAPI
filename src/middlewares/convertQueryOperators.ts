@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express"
+import { NextFunction, Request, Response } from 'express';
 
-const convertQueryOperators = (req: Request, res: Response, next:NextFunction) => {
+const convertQueryOperators = (req: Request, res: Response, next: NextFunction) => {
   const operators: { [key: string]: string } = {
     gte: ">=",
     lte: "<=",
@@ -8,23 +8,23 @@ const convertQueryOperators = (req: Request, res: Response, next:NextFunction) =
     lt: "<",
     eq: "=",
     neq: "!=",
-  }
+  };
 
   if (req.query) {
     for (const key in req.query) {
-      const pair = req.query[key]
-      if (typeof pair === "object") {
-        const newPair: { [key: string]: any } = {}
+      const pair = req.query[key];
+      if (typeof pair === "object" && pair !== null) {
+        const newPair: { [key: string]: any } = {};
         for (const pairKey in pair) {
-          const newKey = operators[pairKey] || pairKey
-          newPair[newKey] = pair[pairKey] // bug
+          const newKey = operators[pairKey] || pairKey;
+          newPair[newKey] = (pair as { [key: string]: any })[pairKey]; // Explicit type assertion
         }
-        req.query[key] = newPair
+        req.query[key] = newPair;
       }
     }
   }
 
-  next()
-}
+  next();
+};
 
-export default convertQueryOperators
+export default convertQueryOperators;
