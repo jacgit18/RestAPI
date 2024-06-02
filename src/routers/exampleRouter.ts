@@ -23,11 +23,11 @@ const exampleRoutes: RouterEntry[] = [
   //   route: '/:id/ratings',
   //   controllerFn: exampleController.updateStuffTwo
   // },
-  // {
-  //   method: 'delete',
-  //   route: '/:id',
-  //   controllerFn: exampleController.deleteStuff
-  // }
+  {
+    method: 'delete',
+    route: '/:id',
+    controllerFn: exampleController.deleteStuff
+  }
 ]
 
 export default routerFactory(exampleRoutes)

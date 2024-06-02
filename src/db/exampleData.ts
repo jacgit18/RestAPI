@@ -31,9 +31,19 @@ async function getStuff(id: number): Promise<any> {
   
 // }
 
+async function deleteStuff(id: number): Promise<any> {
+  const index = tvShows.findIndex(show => show.id === id);
+  if (index !== -1) {
+      const deletedShow = await tvShows.splice(index, 1)[0];
+      return { message: `TV show '${deletedShow.name}' deleted successfully` };
+  }
+
+}
+
 
 export default {
   createStuff,
-  getStuff
+  getStuff,
   // updateMaterial
+  deleteStuff
 }

@@ -38,15 +38,12 @@ async function getStuff(id: number): Promise<any> {
 //       columnsReturnedFromDbQuery(Example.fieldDefinitions)
 //     )
 //   }
+
+
   
-//   async function deleteStuff(updatedValues: any, material_id: string): Promise<any> {
-//     updatedValues.date_modified = new Date()
-//     return exampleData.updateMaterial(
-//       updatedValues,
-//       {id: material_id},
-//       columnsReturnedFromDbQuery(Example.fieldDefinitions)
-//     )
-//   }
+  async function deleteStuff(id: number): Promise<any> {
+    return await exampleData.deleteStuff(id);
+  }
 
 
 export default {
@@ -54,5 +51,5 @@ export default {
   getStuff,
   // updateStuff,
   // updateStuffTwo,
-  // deleteStuff
+  deleteStuff
 }

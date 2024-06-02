@@ -63,11 +63,6 @@ async function getStuff(req: Request, res: Response): Promise<void> {
 }
 
 
-  
-  
-
-  
-
 }
 
 
@@ -111,18 +106,38 @@ async function getStuff(req: Request, res: Response): Promise<void> {
 
 
 
-// async function deleteStuff(req: Request, res: Response): Promise<void> {
-//   const showId = +req.params.id;
-//     const index = tvShows.findIndex(show => show.id === showId);
+async function deleteStuff(req: Request, res: Response): Promise<void> {
+  const showId = +req.params.id; // Converts the string ID to a number
+
+  try {
+      const result = await exampleService.deleteStuff(showId);
+
+      if (result) {
+          res.status(200).json(result);
+      } else {
+          res.status(404).json({ error: "TV show not found" });
+      }
+  } catch (error) {
+      console.error("Error deleting TV show:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+  }
+
+
+
+
+
+  // const showId = +req.params.id;
+  //   const index = tvShows.findIndex(show => show.id === showId);
   
-//     if (index !== -1) {
-//       const deletedShow = tvShows.splice(index, 1)[0];
-//       res.status(200).json({ message: `TV show '${deletedShow.name}' deleted successfully` });
-//     } else {
-//       res.status(404).json({ error: "TV show not found" });
-//     }
-  
-// }
+  //   if (index !== -1) {
+  //     const deletedShow = tvShows.splice(index, 1)[0];
+  //     res.status(200).json({ message: `TV show '${deletedShow.name}' deleted successfully` });
+  //   } else {
+  //     res.status(404).json({ error: "TV show not found" });
+  //   }
+
+
+}
 
 
 const exportDefault = {
@@ -130,7 +145,7 @@ const exportDefault = {
   getStuff,
   // updateStuff,
   // updateStuffTwo,
-  // deleteStuff
+  deleteStuff
 }
 
 export default addErrorHandlingToController(exportDefault)
