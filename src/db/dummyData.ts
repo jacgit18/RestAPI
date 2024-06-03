@@ -6,8 +6,9 @@ export const tvShows: TVShow[] = [
         id: 1,
         name: "Stuff",
         ratings: [],
-        episodes: []
-    
+        episodes:[
+        { id: 1, name: "Episode 1", ratings: [45], date_created: new  Date}
+    ]
     },
     
     {

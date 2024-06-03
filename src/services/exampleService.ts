@@ -21,23 +21,18 @@ async function getStuff(id: number): Promise<any> {
 }
 
 
-// async function updateStuff(updatedValues: any, material_id: string): Promise<any> {
-//   updatedValues.date_modified = new Date()
-//   return exampleData.updateMaterial(
-//     updatedValues,
-//     {id: material_id},
-//     columnsReturnedFromDbQuery(Example.fieldDefinitions)
-//   )
+async function updateStuff(showId: number, episodes: Episode[]): Promise<any> {
+  return await exampleData.updateStuff(showId, episodes);
+
+
+}
+
+
+// async function updateStuffTwo(showId: number, episodes: Episode[]): Promise<any> {
+//   return await exampleData.updateStuff(showId, episodes);
+
+
 // }
-
-
-// async function updateStuffTwo(filter: any, queryParams: QueryParams): Promise<any[]> {
-//     return await exampleData.getMaterials(
-//       filter,
-//       queryParams,
-//       columnsReturnedFromDbQuery(Example.fieldDefinitions)
-//     )
-//   }
 
 
   
@@ -49,7 +44,7 @@ async function getStuff(id: number): Promise<any> {
 export default {
   createStuff,
   getStuff,
-  // updateStuff,
+  updateStuff,
   // updateStuffTwo,
   deleteStuff
 }

@@ -13,11 +13,11 @@ const exampleRoutes: RouterEntry[] = [
     route: '/:id',
     controllerFn: exampleController.getStuff
   },
-  // {
-  //   method: 'put',
-  //   route: '/:id/episodes',
-  //   controllerFn: exampleController.updateStuff
-  // },
+  {
+    method: 'put',
+    route: '/:id/episodes',
+    controllerFn: exampleController.updateStuff
+  },
   // {
   //   method: 'patch',
   //   route: '/:id/ratings',

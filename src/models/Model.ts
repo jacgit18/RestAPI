@@ -15,7 +15,6 @@ export interface Episode {
   id: number;
   name: string;
   ratings: number[];
-  episodes: [string, number] | [];
   date_created: Date;
 }
 
@@ -31,7 +30,6 @@ export interface TVShow {
   ratings: Rating[];
   episodes: Episode[];
 }
-
 
 
 
