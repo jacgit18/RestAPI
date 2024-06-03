@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import fs from 'fs';
-import path from 'path';
 // import { spawn } from "node:child_process";
 import { Episode, Rating, TVShow } from "../models/Model.ts";
 // import { Example } from '../models/index.js'
@@ -41,15 +39,15 @@ async function getShowInfo(req: Request, res: Response): Promise<void> {
 
     if (tvShow) {
     // Extra Uncessary stuff
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-      res.status(500).send('Error reading file');
-      return;
-      }
+    // fs.readFile(filePath, 'utf8', (err, data) => {
+    //   if (err) {
+    //   res.status(500).send('Error reading file');
+    //   return;
+    //   }
     
-      res.sendFile(path.join(__dirname, "static", "about.html"))
+    //   res.sendFile(path.join(__dirname, "static", "about.html"))
 
-    })
+    // })
 
       res.status(200).json(tvShow);
 
@@ -60,7 +58,6 @@ async function getShowInfo(req: Request, res: Response): Promise<void> {
     console.error("Error getting TV show:", error);
     res.status(500).json({ error: "Internal Server Error" });
 }
-
 
 }
 

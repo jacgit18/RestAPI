@@ -1,8 +1,8 @@
-import { AddressInfo } from "net";
-import app from "./app";
 import dotenv from 'dotenv';
+import { AddressInfo } from "net";
 import process from 'process';
 import winston from 'winston';
+import app from "./app";
 
 // Load environment variables from .env file
 dotenv.config();
