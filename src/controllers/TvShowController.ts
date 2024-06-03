@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
-// import { spawn } from "node:child_process";
 import { Episode, Rating, TVShow } from "../models/Model.ts";
-// import { Example } from '../models/index.js'
+// import { TvShowModel } from '../models/index.js'
 import { tvShows } from "../db/dummyData.ts";
 import { tvShowService } from "../services/index.ts";
 import { addErrorHandlingToController } from "../utils/error.ts";
