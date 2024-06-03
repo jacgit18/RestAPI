@@ -30,24 +30,12 @@ async function createShow(req: Request, res: Response): Promise<void> {
 
 
 async function getShowInfo(req: Request, res: Response): Promise<void> {
-  const filePath = 'names.txt';
-
   const showId = +req.params.id; // Converts the string ID to a number
 
   try {
     const tvShow = await tvShowService.getShowInfo(showId);
 
     if (tvShow) {
-    // Extra Uncessary stuff
-    // fs.readFile(filePath, 'utf8', (err, data) => {
-    //   if (err) {
-    //   res.status(500).send('Error reading file');
-    //   return;
-    //   }
-    
-    //   res.sendFile(path.join(__dirname, "static", "about.html"))
-
-    // })
 
       res.status(200).json(tvShow);
 

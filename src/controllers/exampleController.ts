@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import fs from 'fs';
-import path from 'path';
 // import { spawn } from "node:child_process";
 import { Episode, Rating, TVShow } from "../models/Model.ts";
 // import { Example } from '../models/index.js'
@@ -40,16 +38,16 @@ async function getStuff(req: Request, res: Response): Promise<void> {
     const tvShow = await exampleService.getStuff(showId);
 
     if (tvShow) {
-    // Extra Uncessary stuff
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-      res.status(500).send('Error reading file');
-      return;
-      }
+    // Extra Uncessary stuff bad practicce to have multiple responses to a request
+    // fs.readFile(filePath, 'utf8', (err, data) => {
+    //   if (err) {
+    //   res.status(500).send('Error reading file');
+    //   return;
+    //   }
     
-      res.sendFile(path.join(__dirname, "static", "about.html"))
+    //   res.sendFile(path.join(__dirname, "static", "about.html"))
 
-    })
+    // })
 
       res.status(200).json(tvShow);
 
