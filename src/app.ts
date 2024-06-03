@@ -30,8 +30,9 @@ app.use(express.static(path.join(__dirname, "static", "about.html")))
 
 
 
-
-app.use("/v1/api/shows", routes.exampleRouter)
+// Can use middleware for things like cookies, caching, user validation, etc...
+app.use("/v1/api/shows", routes.tvShowRouter)
+// app.use("/v1/api/example", routes.exampleRouter)
 
 
 
