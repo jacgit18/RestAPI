@@ -2,7 +2,7 @@
 // import { db, whereBuilder } from "./db.ts"
 // import { paginationForQuery, updateFilterForQueryParams } from "./util.ts"
 import { tvShows } from '../db/dummyData';
-import { Episode, TVShow } from '../models/Model';
+import { Episode, Rating, TVShow } from '../models/Model';
 
 
 async function createStuff(tvShow: TVShow): Promise<any> {
@@ -32,17 +32,15 @@ async function updateStuff(showId: number, episodes: Episode[]){
 }
 
 
-// async function updateStuffTwo(showId: number, episodes: Episode[]){
-//   const tvShowIndex = tvShows.findIndex(show => show.id === showId);
-
-//   if (tvShowIndex !== -1) {
-//       tvShows[tvShowIndex].episodes = episodes;
-//       return tvShows[tvShowIndex];
-//   } else {
-//       return undefined;
-//   }
+async function updateStuffTwo(showId: number, ratings: Rating[]){
+  const tvShow = tvShows.find(show => show.id === showId);
+  if (tvShow) {
+    tvShow.ratings = tvShow.ratings.concat(ratings);
+    return tvShow;
+  }
+  return null;
   
-// }
+}
 
 
 async function deleteStuff(id: number): Promise<any> {
@@ -62,6 +60,6 @@ export default {
   createStuff,
   getStuff,
   updateStuff,
-  // updateStuffTwo,
+  updateStuffTwo,
   deleteStuff
 }

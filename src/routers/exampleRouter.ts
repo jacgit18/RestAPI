@@ -18,11 +18,11 @@ const exampleRoutes: RouterEntry[] = [
     route: '/:id/episodes',
     controllerFn: exampleController.updateStuff
   },
-  // {
-  //   method: 'patch',
-  //   route: '/:id/ratings',
-  //   controllerFn: exampleController.updateStuffTwo
-  // },
+  {
+    method: 'patch',
+    route: '/:id/ratings',
+    controllerFn: exampleController.updateStuffTwo
+  },
   {
     method: 'delete',
     route: '/:id',

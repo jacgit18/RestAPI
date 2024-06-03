@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import fs from 'fs';
 import path from 'path';
 // import { spawn } from "node:child_process";
-import { Episode, TVShow } from "../models/Model.ts";
+import { Episode, Rating, TVShow } from "../models/Model.ts";
 // import { Example } from '../models/index.js'
 import { tvShows } from "../db/dummyData.ts";
 import { exampleService } from "../services/index.ts";
@@ -65,6 +65,7 @@ async function getStuff(req: Request, res: Response): Promise<void> {
 }
 
 
+// Put replace the entire resource
 async function updateStuff(req: Request, res: Response): Promise<void> {
   
   const showId = +req.params.id;
@@ -87,21 +88,25 @@ async function updateStuff(req: Request, res: Response): Promise<void> {
   
 }
 
-// async function updateStuffTwo(req: Request, res: Response): Promise<void> {
-//   const showId = +req.params.id;
-//     const { ratings }: { ratings: Rating[] } = req.body;
-//     const tvShow = tvShows.find(show => show.id === showId);
-  
-//     if (tvShow) {
-//       tvShow.ratings = tvShow.ratings.concat(ratings);
-//       res.status(200).json(tvShow);
-//     } else {
-//       res.status(404).json({ error: "TV show not found" });
-//     }
-  
-// }
+// Patch partial modifications
+async function updateStuffTwo(req: Request, res: Response): Promise<void> {
 
+  const showId = +req.params.id;
+  const { ratings }: { ratings: Rating[] } = req.body;
 
+  try {
+    const updatedTVShow = await exampleService.updateStuffTwo(showId, ratings);
+
+    if (updatedTVShow) {
+      res.status(200).json(updatedTVShow);
+    } else {
+      res.status(404).json({ error: "TV show not found" });
+    }
+  } catch (error) {
+    console.error("Error updating TV show ratings:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
 
 
 async function deleteStuff(req: Request, res: Response): Promise<void> {
@@ -126,7 +131,7 @@ const exportDefault = {
   createStuff,
   getStuff,
   updateStuff,
-  // updateStuffTwo,
+  updateStuffTwo,
   deleteStuff
 }
 

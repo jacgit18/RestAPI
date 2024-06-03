@@ -2,7 +2,7 @@
 import { exampleData } from "../db/index.ts";
 // import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 // import { Example } from '../models/index.ts'
-import { Episode, TVShow } from "../models/Model.ts";
+import { Episode, Rating, TVShow } from "../models/Model.ts";
 
 
 async function createStuff(tvShow: TVShow): Promise<any> {
@@ -28,11 +28,9 @@ async function updateStuff(showId: number, episodes: Episode[]): Promise<any> {
 }
 
 
-// async function updateStuffTwo(showId: number, episodes: Episode[]): Promise<any> {
-//   return await exampleData.updateStuff(showId, episodes);
-
-
-// }
+async function updateStuffTwo(showId: number, ratings: Rating[]): Promise<any> {
+  return await exampleData.updateStuffTwo(showId, ratings);
+}
 
 
   
@@ -45,6 +43,6 @@ export default {
   createStuff,
   getStuff,
   updateStuff,
-  // updateStuffTwo,
+  updateStuffTwo,
   deleteStuff
 }
