@@ -4,7 +4,7 @@ import { RouterEntry, routerFactory } from "./util.ts"
 const exampleRoutes: RouterEntry[] = [
   {
     method: 'post',
-    route: '/',
+    route: '/add/show',
     middlewares:[],
     controllerFn: tvShowController.createShow
   }
