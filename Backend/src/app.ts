@@ -9,8 +9,23 @@ import * as routes from "./routers/index.ts";
 const app = express()
 
 
-// Middle Wares
-  app.use(morgan("tiny")) // HTTP request logger
+
+// Todo look into API Gateway middleware
+
+// Todo how would you identify were endpoint is appended to
+// localhost url
+
+
+// use seperate build folders for frontend and backend builds
+
+// There is a dependency across features something needs to be
+// created within database sometimes in order to use a specific
+// feature.
+
+
+
+// Global Middlewares
+app.use(morgan("tiny")) // HTTP request logger
 
 
 app.use(cors())
@@ -31,7 +46,10 @@ app.use(express.static(path.join(__dirname, "static", "about.html")))
 
 
 // Can use middleware for things like cookies, caching, user validation, etc...
+// Apply middlewares globally or on specific routes
+// app.use("/v1/api", routes.tvShowRouter, middleware)
 app.use("/v1/api", routes.tvShowRouter)
+
 // app.use("/v1/api/example", routes.exampleRouter)
 
 

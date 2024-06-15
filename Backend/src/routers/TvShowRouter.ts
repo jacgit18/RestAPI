@@ -1,6 +1,8 @@
 import tvShowController from "../controllers/TvShowController.ts"
 import { RouterEntry, routerFactory } from "./util.ts"
 
+
+
 const exampleRoutes: RouterEntry[] = [
   {
     method: 'post',
