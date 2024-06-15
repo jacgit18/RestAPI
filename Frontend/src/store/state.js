@@ -1,5 +1,11 @@
 
 
 export const state = {
-    meals: ['Salmon']
+    searchedMeals: [],
+    mealsByLetter: [],
+    mealsByIngredient: [],
+    ingredient: [],
+    dispMeal: []
+
+
 };
