@@ -4,7 +4,7 @@ By Meals
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
 
 </script>

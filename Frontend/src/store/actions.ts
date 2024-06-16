@@ -1,9 +1,9 @@
 import { axiosClient } from "../axiosClient";
-
+// send a request to backend enpoint with keyword or some thing
 export const actions = {
   searchMeals({ commit }, keyword) {
-    axiosClient.get(`/search.php?s=${keyword}`)
-      .then(({ data }) => {
+    axiosClient.get(`http://localhost:3003/v1/api/${keyword}/3`)
+    .then(({ data }) => {
         console.log(data);
         commit('setSearchedMeals', data.meals); // Assuming 'setSearchedMeals' mutation exists
       })

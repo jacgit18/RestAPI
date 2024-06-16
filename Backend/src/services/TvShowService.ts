@@ -1,4 +1,5 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
+import { axiosClient } from "../axiosClient.ts";
 import { tvShowData } from "../db/index.ts";
 // import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 // import { Example } from '../models/index.ts'
@@ -15,9 +16,20 @@ const createdShow = await tvShowData.createShow(tvShow); // Await data layer cal
 return createdShow;
 }
 
-async function getShowInfo(id: number): Promise<any> {
+async function getShowInfo(keyword: String, id: number): Promise<any> {
+  const response = await axiosClient.get(`/search.php?s=${keyword}`);
 
-  return await tvShowData.getShowInfo(id);
+  // const response = await axios.get(`${baseURL}/lookup.php?i=${id}`);/
+  // non tv api same sentiment tho you can call and return or pass of response 
+  // data to the next or prev layer
+
+  // can also transofrm data and add or filter out things for the frontend to get
+  // refined data to write less code on the frontend
+  // const response = await axiosClient.get(`/random.php`);
+
+  console.log(response.data)
+  return response.data
+  // return await tvShowData.getShowInfo(id);
 }
 
 

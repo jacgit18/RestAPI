@@ -54,10 +54,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { axiosClient } from "../axiosClient";
+import { axiosClient } from "../axiosClient.ts";
 import YoutubeButton from "../components/YoutubeButton.vue";
 
 const route = useRoute();

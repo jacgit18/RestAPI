@@ -3,7 +3,7 @@ import { RouterEntry, routerFactory } from "./util.ts"
 
 
 
-const exampleRoutes: RouterEntry[] = [
+const tvShowRoutes: RouterEntry[] = [
   {
     method: 'post',
     route: '/add/show',
@@ -13,7 +13,7 @@ const exampleRoutes: RouterEntry[] = [
   ,
   {
     method: 'get',
-    route: '/:id',
+    route: '/:keyword/:id',
     middlewares:[],
     controllerFn: tvShowController.getShowInfo
   },
@@ -37,4 +37,4 @@ const exampleRoutes: RouterEntry[] = [
   }
 ]
 
-export default routerFactory(exampleRoutes)
+export default routerFactory(tvShowRoutes)

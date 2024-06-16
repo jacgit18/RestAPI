@@ -11,8 +11,8 @@
 
 </template>
 
-<script setup>
-import NavBar  from "./NavBar.vue";
+<script setup lang="ts">
+import NavBar from "./NavBar.vue";
 
 </script>
 

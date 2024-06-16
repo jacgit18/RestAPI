@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import YoutubeButton from "./YoutubeButton.vue";
 
 const { meal } = defineProps({

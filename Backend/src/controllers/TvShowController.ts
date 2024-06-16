@@ -31,8 +31,11 @@ async function createShow(req: Request, res: Response): Promise<void> {
 async function getShowInfo(req: Request, res: Response): Promise<void> {
   const showId = +req.params.id; // Converts the string ID to a number
 
+  const keyword = req.params.keyword
+
+
   try {
-    const tvShow = await tvShowService.getShowInfo(showId);
+    const tvShow = await tvShowService.getShowInfo(keyword, showId );
 
     if (tvShow) {
 
