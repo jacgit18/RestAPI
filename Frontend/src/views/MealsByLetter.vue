@@ -22,7 +22,7 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import Meals from "../components/Meals.vue";

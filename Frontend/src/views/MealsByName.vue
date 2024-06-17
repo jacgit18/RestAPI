@@ -18,7 +18,7 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed } from "@vue/reactivity";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";

@@ -9,9 +9,9 @@
 
 </template>
 
-<script lang="ts">
+<script setup>
 import { onMounted, ref } from "vue";
-import { axiosClient } from "../axiosClient.ts";
+import { axiosClient } from "../axiosClient.js";
 import Meals from "../components/Meals.vue";
 
 

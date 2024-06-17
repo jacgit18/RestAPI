@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
 import store from "../store";
