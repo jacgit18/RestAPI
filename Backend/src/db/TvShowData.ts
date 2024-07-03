@@ -5,14 +5,14 @@ import { tvShows } from '../db/dummyData';
 import { Episode, Rating, TVShow } from '../models/Model';
 
 
-async function createShow(tvShow: TVShow): Promise<any> {
+const createShow = async (tvShow: TVShow): Promise<any> =>{
   // const createdMaterial = await db('material_type').insert(material, returnFields)
   const createdShow = await tvShows.push(tvShow)
   
   return createdShow
 }
 
-async function getShowInfo(id: number): Promise<any> {
+ const getShowInfo = async (id: number): Promise<any> =>{
   return await tvShows.find(show => show.id === id);
 }
 

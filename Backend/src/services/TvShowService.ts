@@ -1,5 +1,5 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
-import { axiosClient } from "../axiosClient.ts";
+import { getDataFromApi } from "../axiosClient.ts";
 import { tvShowData } from "../db/index.ts";
 // import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 // import { Example } from '../models/index.ts'
@@ -17,7 +17,10 @@ return createdShow;
 }
 
 async function getShowInfo(keyword: String, id: number): Promise<any> {
-  const response = await axiosClient.get(`/search.php?s=${keyword}`);
+  const mealData = await getDataFromApi('mealApi', `/search.php?s=${keyword}`);
+  // const wetData = await getWeatherData('London');
+
+  // const response = await axiosClient.get(`/search.php?s=${keyword}`);
 
   // const response = await axios.get(`${baseURL}/lookup.php?i=${id}`);/
   // non tv api same sentiment tho you can call and return or pass of response 
@@ -27,9 +30,10 @@ async function getShowInfo(keyword: String, id: number): Promise<any> {
   // refined data to write less code on the frontend
   // const response = await axiosClient.get(`/random.php`);
 
-  console.log(response.data)
-  return response.data
-  // return await tvShowData.getShowInfo(id);
+  console.log(mealData)
+
+  // return wetData
+  return await tvShowData.getShowInfo(id);
 }
 
 
