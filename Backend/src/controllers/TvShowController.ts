@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Episode, Rating, TVShow } from "../models/Model.ts";
+import { Episode, Rating } from "../models/Model.ts";
 // import { TvShowModel } from '../models/index.js'
 import { tvShowService } from "../services/index.ts";
 import { addErrorHandlingToController } from "../utils/error.ts";
@@ -7,21 +7,21 @@ import { addErrorHandlingToController } from "../utils/error.ts";
 
 async function createShow(req: Request, res: Response): Promise<void> {
 
-  // console.log(req.body)
+  console.log(req.body)
 
 
   let idShow = 3;
 
-  const tvShow: TVShow = {
-      show_id: ++idShow,
-      title: req.body.title,
-      ratings: [],
-      episodes: [], // Assuming episodes are added later
-  };
+  // const tvShow: TVShow = {
+  //     show_id: ++idShow,
+  //     title: req.body.title,
+  //     ratings: [],
+  //     episodes: [], // Assuming episodes are added later
+  // };
 
 
   try {
-      const createdExamples = await tvShowService.createShow(tvShow);
+      const createdExamples = await tvShowService.createShow(req.body);
       res.status(201).json(createdExamples);
       // console.log(createdExamples)
   } catch (error) {
