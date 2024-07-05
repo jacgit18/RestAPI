@@ -1,24 +1,29 @@
 import { Request, Response } from "express";
 import { Episode, Rating, TVShow } from "../models/Model.ts";
 // import { TvShowModel } from '../models/index.js'
-import { tvShows } from "../db/dummyData.ts";
 import { tvShowService } from "../services/index.ts";
 import { addErrorHandlingToController } from "../utils/error.ts";
 
 
 async function createShow(req: Request, res: Response): Promise<void> {
+
+  // console.log(req.body)
+
+
   let idShow = 3;
 
   const tvShow: TVShow = {
-      id: ++idShow,
-      name: req.body.name,
+      show_id: ++idShow,
+      title: req.body.title,
       ratings: [],
       episodes: [], // Assuming episodes are added later
   };
 
+
   try {
       const createdExamples = await tvShowService.createShow(tvShow);
-      res.status(201).json(tvShows);
+      res.status(201).json(createdExamples);
+      // console.log(createdExamples)
   } catch (error) {
       console.error("Error creating stuff:", error);
       res.status(500).json({ error: "Internal Server Error" });

@@ -7,7 +7,7 @@ import { Episode, Rating, TVShow } from "../models/Model.ts";
 
 async function createStuff(tvShow: TVShow): Promise<any> {
   tvShow.episodes.forEach((episode: Episode) => {
-    episode.date_created = new Date();
+    episode.created_at = new Date();
 });
 
 const createdShow = await exampleData.createStuff(tvShow); // Await data layer call

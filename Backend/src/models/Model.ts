@@ -10,26 +10,56 @@ export interface FieldSpec {
   enumValues?: string[]
 }
 
-
 export interface Episode {
-  id: number;
-  name: string;
-  ratings: number[];
-  date_created: Date;
+  episode_id: number;
+  title: string;
+  season_number: number;
+  episode_number: number;
+  description?: string;
+  air_date?: Date;
+  average_rating: number;
+  total_ratings: number;
+  created_at: Date;
+  updated_at: Date;
 }
+
+
 
 export interface Rating {
-  user: string;
+  rating_id: number;
+  user_id: number;
+  show_id?: number;
+  episode_id?: number;
   score: number;
+  created_at: Date;
 }
+
 
 
 export interface TVShow {
-  id: number;
-  name: string;
+  show_id: number;
+  title: string;
+  description?: string;
+  genre?: string;
+  release_date?: Date;
+  average_rating?: number;
+  total_ratings?: number;
+  created_at?: Date;
+  updated_at?: Date;
   ratings: Rating[];
   episodes: Episode[];
 }
+
+
+export interface User {
+  user_id: number;
+  username: string;
+  email: string;
+  password: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
 
 
 

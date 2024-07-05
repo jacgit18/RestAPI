@@ -1,64 +1,67 @@
-import { FieldSpec } from "./Model.ts"
+import { FieldSpec } from "./Model.ts";
 
-export const fieldDefinitions:  FieldSpec[] = [
+export const fieldDefinitions: FieldSpec[] = [
   {
-    name: 'id',
-    type: 'UUID',
-    requiredForCreateRequest: false,
-    returnFromDbQuery: true,
-    canBeModifiedByUser: false
-  },
-    {
-    name: 'appuser_id',
+    name: 'show_id',
     type: 'UUID',
     requiredForCreateRequest: false,
     returnFromDbQuery: true,
     canBeModifiedByUser: false
   },
   {
-    name: 'is_active',
-    type: 'boolean',
-    requiredForCreateRequest: false,
-    returnFromDbQuery: true,
-    canBeModifiedByUser: false
-  },
-  {
-    name: 'field_name',
-    type: 'string',
-    requiredForCreateRequest: false,
-    returnFromDbQuery: true,
-    canBeModifiedByUser: true
-  },
-  {
-    name: 'name',
+    name: 'title',
     type: 'string',
     requiredForCreateRequest: true,
     returnFromDbQuery: true,
     canBeModifiedByUser: true
   },
   {
-    name: 'created_by',
-    type: 'UUID',
+    name: 'description',
+    type: 'string',
+    requiredForCreateRequest: false,
+    returnFromDbQuery: true,
+    canBeModifiedByUser: true
+  },
+  {
+    name: 'genre',
+    type: 'string',
+    requiredForCreateRequest: false,
+    returnFromDbQuery: true,
+    canBeModifiedByUser: true
+  },
+  {
+    name: 'release_date',
+    type: 'timestamp',
+    requiredForCreateRequest: false,
+    returnFromDbQuery: true,
+    canBeModifiedByUser: true
+  },
+  {
+    name: 'average_rating',
+    type: 'number',
     requiredForCreateRequest: false,
     returnFromDbQuery: true,
     canBeModifiedByUser: false
   },
   {
-    name: 'date_created',
+    name: 'total_ratings',
+    type: 'number',
+    requiredForCreateRequest: false,
+    returnFromDbQuery: true,
+    canBeModifiedByUser: false
+  },
+  {
+    name: 'created_at',
     type: 'timestamp',
     requiredForCreateRequest: false,
     returnFromDbQuery: true,
     canBeModifiedByUser: false
   },
   {
-    name: 'date_modified',
+    name: 'updated_at',
     type: 'timestamp',
     requiredForCreateRequest: false,
     returnFromDbQuery: true,
-    canBeModifiedByUser: false,
+    canBeModifiedByUser: false
   },
-]
-
-
-
-
+];

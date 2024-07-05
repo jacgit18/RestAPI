@@ -11,11 +11,11 @@ async function createStuff(req: Request, res: Response): Promise<void> {
   let idShow = 3;
 
   const tvShow: TVShow = {
-      id: ++idShow,
-      name: req.body.name,
-      ratings: [],
-      episodes: [], // Assuming episodes are added later
-  };
+    show_id: ++idShow,
+    title: req.body.title,
+    ratings: [],
+    episodes: [], // Assuming episodes are added later
+};
 
   try {
       const createdExamples = await exampleService.createStuff(tvShow);

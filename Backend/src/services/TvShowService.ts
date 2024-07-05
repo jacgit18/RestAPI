@@ -1,17 +1,26 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
 import { getDataFromApi } from "../axiosClient.ts";
 import { tvShowData } from "../db/index.ts";
-// import { columnsReturnedFromDbQuery } from "../models/Model.ts"
+import { columnsReturnedFromDbQuery } from "../models/Model.ts";
 // import { Example } from '../models/index.ts'
 import { Episode, Rating, TVShow } from "../models/Model.ts";
+import { TvShowModel } from "../models/index.ts";
 
 
 async function createShow(tvShow: TVShow): Promise<any> {
   tvShow.episodes.forEach((episode: Episode) => {
-    episode.date_created = new Date();
+    episode.created_at = new Date();
 });
 
-const createdShow = await tvShowData.createShow(tvShow); // Await data layer call
+
+// tvShows.forEach((id: number) => {
+//   show_id = id++;
+// });
+
+const createdShow = await tvShowData.createShow(tvShow,
+  columnsReturnedFromDbQuery(TvShowModel.fieldDefinitions)
+
+); // Await data layer call
 
 return createdShow;
 }

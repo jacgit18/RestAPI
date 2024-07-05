@@ -5,7 +5,10 @@
   "main": "serve.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/serve.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-migration": "npx knex migrate:make",
+    "migrate-up": "npx knex migrate:latest",
+    "migrate-down": "npx knex migrate:rollback"
   },
   "keywords": [],
   "author": "",
