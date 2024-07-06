@@ -5,7 +5,7 @@
   "main": "src/serve.ts",
   "scripts": {
     "start": "nodemon --exec ts-node src/serve.ts",
-    "start-build": "nodemon ./build/src/serve.js",
+    "start-build": "nodemon ./build/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run compile-ts",
     "cbs": "npm run build && npm run start",

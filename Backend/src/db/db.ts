@@ -1,5 +1,5 @@
 import knex from 'knex'
-import config from "../config/config.ts"
+import config from "../../config/config.ts"
 
 // @ts-ignore
 export const db = knex(config.standardDbConfig)
