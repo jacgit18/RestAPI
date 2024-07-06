@@ -1,5 +1,5 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.ts"
-import { db } from "./db.ts";
+import { db } from "./db";
 // import { whereBuilder } from "./db.ts"
 
 // import { paginationForQuery, updateFilterForQueryParams } from "./util.ts"

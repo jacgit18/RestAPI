@@ -9,3 +9,5 @@
 # Ignore package-lock.json files in Frontend and Backend directories
 /Frontend/package-lock.json
 /Backend/package-lock.json
+
+/Backend/build

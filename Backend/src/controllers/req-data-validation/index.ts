@@ -1,4 +1,4 @@
-import { FieldType } from "../../models/Model.ts"
+import { FieldType } from "../../models/Model"
 
 type QueryParamFieldNames = 'active' | 'include' | 'limit' | 'page' | 'sort'
 

@@ -1,4 +1,4 @@
-import { FieldSpec } from "./Model.ts";
+import { FieldSpec } from "./Model";
 
 export const userShowFieldDefinitions: FieldSpec[] = [
   {

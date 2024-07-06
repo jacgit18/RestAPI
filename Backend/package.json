@@ -2,7 +2,8 @@
   "name": "restapi",
   "version": "1.0.0",
   "description": "",
-  "main": "src/serve.ts",
+  "main": "build/src/serve.js",
+  "type": "module", 
   "scripts": {
     "start": "nodemon --exec ts-node src/serve.ts",
     "start-build": "nodemon ./build/serve.js",

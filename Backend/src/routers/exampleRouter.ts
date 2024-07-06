@@ -1,5 +1,5 @@
-import exampleController from "../controllers/exampleController.ts"
-import { RouterEntry, routerFactory } from "./util.ts"
+import exampleController from "../controllers/exampleController"
+import { RouterEntry, routerFactory } from "./util"
 
 const exampleRoutes: RouterEntry[] = [
   {

@@ -1,10 +1,10 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
-import { getDataFromApi } from "../axiosClient.ts";
-import { tvShowData } from "../db/index.ts";
-import { columnsReturnedFromDbQuery } from "../models/Model.ts";
+import { getDataFromApi } from "../axiosClient";
+import { tvShowData } from "../db/index";
+import { columnsReturnedFromDbQuery } from "../models/Model";
 // import { Example } from '../models/index.ts'
-import { Episode, Rating, TVShow } from "../models/Model.ts";
-import { TvShowModel } from "../models/index.ts";
+import { Episode, Rating, TVShow } from "../models/Model";
+import { TvShowModel } from "../models/index";
 
 
 async function createShow(tvShow: TVShow): Promise<any> {
