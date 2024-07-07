@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "build/src/serve.js",
-  "type": "module", 
+  "tsconfig": "tsconfig.json",
+  "type": "module",
+  "types": "ts",
   "scripts": {
     "start": "nodemon --exec ts-node src/serve.ts",
     "start-build": "nodemon ./build/serve.js",
@@ -44,5 +46,17 @@
     "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5",
     "winston": "^3.13.0"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "ignore": [
+      "src/**/*.test.ts"
+    ],
+    "execMap": {
+      "ts": "node -r ts-node/register"
+    }
   }
 }
