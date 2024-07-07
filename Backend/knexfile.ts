@@ -1,5 +1,5 @@
 // ensuring that env vars are set up
-import config from "./src/config/config.ts"
+import config from "./config/config.js"
 
 const knexMigrationConfig = config.standardDbConfig
 

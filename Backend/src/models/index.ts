@@ -1,3 +1,3 @@
-export * as Example from "./Example.ts";
-export * as TvShowModel from "./Show.ts";
+export * as Example from "./Example.js";
+export * as TvShowModel from "./Show.js";
 

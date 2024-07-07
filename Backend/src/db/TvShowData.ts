@@ -1,10 +1,10 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.ts"
-import { db } from "./db.ts";
+import { db } from "./db.js";
 // import { whereBuilder } from "./db.ts"
 
 // import { paginationForQuery, updateFilterForQueryParams } from "./util.ts"
-import { tvShows } from '../db/dummyData';
-import { Episode, Rating, TVShow } from '../models/Model';
+import { tvShows } from '../db/dummyData.js';
+import { Episode, Rating, TVShow } from '../models/Model.js';
 
 
 const createShow = async (tvShow: TVShow, returnFields: string[]): Promise<any> =>{

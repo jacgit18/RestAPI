@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { AddressInfo } from "net";
 import process from 'process';
 import winston from 'winston';
-import app from "./app";
+import app from "./app.js";
 
 // Load environment variables from .env file
 dotenv.config();

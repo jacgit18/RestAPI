@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Episode, Rating } from "../models/Model.ts";
+import { Episode, Rating } from "../models/Model.js";
 // import { TvShowModel } from '../models/index.js'
-import { tvShowService } from "../services/index.ts";
-import { addErrorHandlingToController } from "../utils/error.ts";
+import { tvShowService } from "../services/index.js";
+import { addErrorHandlingToController } from "../utils/error.js";
 
 
 async function createShow(req: Request, res: Response): Promise<void> {

@@ -1,5 +1,5 @@
-import tvShowController from "../controllers/TvShowController.ts"
-import { RouterEntry, routerFactory } from "./util.ts"
+import tvShowController from "../controllers/TvShowController.js"
+import { RouterEntry, routerFactory } from "./util.js"
 
 
 

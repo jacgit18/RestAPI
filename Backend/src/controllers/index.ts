@@ -1,2 +1,3 @@
-export { default as tvShowController } from "./TvShowController.ts";
-export { default as exampleController } from "./exampleController.ts";
+export { default as exampleController } from "./exampleController.js";
+export { default as tvShowController } from "./TvShowController.js";
+

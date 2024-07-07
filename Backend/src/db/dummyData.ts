@@ -1,4 +1,4 @@
-import { TVShow } from '../models/Model';
+import { TVShow } from '../models/Model.js';
 
 // can recreate with data fixture library and testing infastructure
 

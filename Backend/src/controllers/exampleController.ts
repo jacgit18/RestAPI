@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 // import { spawn } from "node:child_process";
-import { Episode, Rating, TVShow } from "../models/Model.ts";
+import { Episode, Rating, TVShow } from "../models/Model.js";
 // import { Example } from '../models/index.js'
-import { tvShows } from "../db/dummyData.ts";
-import { exampleService } from "../services/index.ts";
-import { addErrorHandlingToController } from "../utils/error.ts";
+import { tvShows } from "../db/dummyData.js";
+import { exampleService } from "../services/index.js";
+import { addErrorHandlingToController } from "../utils/error.js";
 
 
 async function createStuff(req: Request, res: Response): Promise<void> {

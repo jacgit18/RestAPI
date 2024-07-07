@@ -1,2 +1,3 @@
-export { default as tvShowService } from "./TvShowService.ts";
-export { default as exampleService } from "./exampleService.ts";
+export { default as exampleService } from "./exampleService.js";
+export { default as tvShowService } from "./TvShowService.js";
+

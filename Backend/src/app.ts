@@ -2,7 +2,7 @@ import cors from "cors";
 import express from "express";
 import morgan from "morgan";
 import path from 'path';
-import * as routes from "./routers/index.ts";
+import * as routes from "./routers/index.js";
 // import { appUserIdFromHeaders, convertQueryOperators } from "./middlewares/index.ts"
 
 // Todo look into API Gateway middleware

@@ -1,8 +1,8 @@
 // import { QueryParams } from "../controllers/req-data-validation/index.js"
-import { exampleData } from "../db/index.ts";
+import { exampleData } from "../db/index.js";
 // import { columnsReturnedFromDbQuery } from "../models/Model.ts"
 // import { Example } from '../models/index.ts'
-import { Episode, Rating, TVShow } from "../models/Model.ts";
+import { Episode, Rating, TVShow } from "../models/Model.js";
 
 
 async function createStuff(tvShow: TVShow): Promise<any> {

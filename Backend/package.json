@@ -5,9 +5,8 @@
   "main": "build/src/serve.js",
   "tsconfig": "tsconfig.json",
   "type": "module",
-  "types": "ts",
   "scripts": {
-    "start": "nodemon --exec ts-node src/serve.ts",
+    "start": "nodemon --exec ts-node src/serve.js",
     "start-build": "nodemon ./build/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run compile-ts",
