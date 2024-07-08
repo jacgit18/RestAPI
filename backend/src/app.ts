@@ -1,7 +1,6 @@
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
-import path from 'path';
 import * as routes from "./routers/index.js";
 // import { appUserIdFromHeaders, convertQueryOperators } from "./middlewares/index.ts"
 
@@ -29,7 +28,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 
-app.use(express.static(path.join(__dirname, "static", "about.html")))
+// app.use(express.static(path.join(__dirname, "static", "about.html")))
 // app.use(appUserIdFromHeaders)
 
 

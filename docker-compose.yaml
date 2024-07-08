@@ -38,20 +38,20 @@ services:
     depends_on:
       - postgres
 
-  client:
-    container_name: client # testing out
-    image: josh/nextjs_app:1.0.0
-    build:
-      context: .
-      dockerfile: ./frontend/Dockerfile
-    volumes:
-      - './frontend:/usr/app/frontend'
-    ports:
-      - "3001:3001"
-    environment:
-      NEXT_PUBLIC_API_URL: "http://server:8081/api"  # Assuming your backend API runs on the server service
-    depends_on:
-      - server
+  # client:
+  #   container_name: client # testing out
+  #   image: josh/nextjs_app:1.0.0
+  #   build:
+  #     context: .
+  #     dockerfile: ./frontend/Dockerfile
+  #   volumes:
+  #     - './frontend:/usr/app/frontend'
+  #   ports:
+  #     - "3001:3001"
+  #   environment:
+  #     NEXT_PUBLIC_API_URL: "http://server:8081/api"  # Assuming your backend API runs on the server service
+  #   depends_on:
+  #     - server
 
 
 
