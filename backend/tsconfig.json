@@ -112,11 +112,11 @@
     "lib",
     "migrations",
     "src/**/*.ts",
+    "scripts"
   ],
 
   "exclude": [
     "node_modules/**/*",
-    "scripts/**/*",
     "build/**/*",
     "postman/**/*"
   ]

@@ -1,47 +1,49 @@
 import { axiosClient } from "../axiosClient";
-// send a request to backend enpoint with keyword or some thing
+
 export const actions = {
-  searchMeals({ commit }, keyword) {
-    axiosClient.get(`http://localhost:3003/v1/api/${keyword}/3`)
-    .then(({ data }) => {
+  // Direct state updates in Pinia actions
+  searchMeals(keyword) {
+    return axiosClient.get(`http://localhost:3003/v1/api/${keyword}/3`)
+      .then(({ data }) => {
         console.log(data);
-        commit('setSearchedMeals', data.meals); // Assuming 'setSearchedMeals' mutation exists
+        // Directly mutate the state in Pinia
+        this.setSearchedMeals(data.meals);
       })
       .catch(error => {
         console.error('Error fetching meals:', error);
       });
   },
 
-  searchMealsByLetter({ commit }, letter) {
-    axiosClient.get(`/search.php?f=${letter}`)
+  searchMealsByLetter(letter) {
+    return axiosClient.get(`/search.php?f=${letter}`)
       .then(({ data }) => {
         console.log(data);
-        commit('setMealsByLetter', data.meals); // Assuming 'setMealsByLetter' mutation exists
+        this.setMealsByLetter(data.meals);  // Directly mutate state
       })
       .catch(error => {
         console.error('Error fetching meals by letter:', error);
       });
   },
 
-  searchMealsByIngredient({ commit }, ingredient) {
-    axiosClient.get(`/filter.php?i=${ingredient}`)
+  searchMealsByIngredient(ingredient) {
+    return axiosClient.get(`/filter.php?i=${ingredient}`)
       .then(({ data }) => {
         console.log(data);
-        commit('setMealsByIngredient', data.meals); // Assuming 'setMealsByIngredient' mutation exists
+        this.setMealsByIngredient(data.meals);  // Directly mutate state
       })
       .catch(error => {
         console.error('Error fetching meals by ingredient:', error);
       });
   },
 
-  displayMeals({ commit }, dis) {
-    axiosClient.get(`/random.php`)
+  displayMeals() {
+    return axiosClient.get(`/random.php`)
       .then(({ data }) => {
         console.log(data);
-        commit('displayMeals', data.meals); // Assuming 'setMealsByIngredient' mutation exists
+        this.displayMeals(data.meals);  // Directly mutate state
       })
       .catch(error => {
-        console.error('Error fetching meals by ingredient:', error);
+        console.error('Error fetching meals:', error);
       });
   }
 };
